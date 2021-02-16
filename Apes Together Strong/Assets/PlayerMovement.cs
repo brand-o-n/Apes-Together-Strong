@@ -8,8 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;
     public int sprint = 1;
     public bool sprinting = false;
-    public float stamina = 300;
-    public float maxStamina = 300;
+    public float stamina = 20;
+    public float maxStamina = 25;
 
     Vector2 movement;
 
@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
                 stamina = 0;
                 sprint = 1;
             }
-            else if (stamina > 0)
+            else if (stamina > 10)
             {
                 sprint = 3;
             }

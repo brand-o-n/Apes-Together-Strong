@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     public float stamina = 20;
     public float maxStamina = 25;
 
+    public Animator animator;
+
     Vector2 movement;
 
     void Update()
@@ -19,6 +21,11 @@ public class PlayerMovement : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
+        animator.SetFloat("Horizontal", movement.x);
+        animator.SetFloat("Vertical", movement.y);
+        animator.SetFloat("Speed", movement.sqrMagnitude);
+
+        //Sprint and Stamina
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             sprinting = true;
